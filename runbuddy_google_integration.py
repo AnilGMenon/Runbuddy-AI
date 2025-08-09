@@ -88,7 +88,7 @@ if __name__ == '__main__':
 
     print("Reading trail data from Google Sheet...")
     trails = read_google_sheet(spreadsheet_id, range_name)
-    trails = prepare_trail_data_for_ai(trails)
+    #trails = prepare_trail_data_for_ai(trails)
     print(trails)
 
     print("\nFetching upcoming run events from Google Calendar...")
@@ -119,17 +119,3 @@ if __name__ == '__main__':
         weather_data[city] = weather
 
     print(weather_data)
-
-    from llm_agent import get_trail_recommendation
-
-    # Assuming you already have these variables ready:
-    # calendar_event = {...}
-    # weather_data = {...}
-    # trails_data = [...]
-
-    recommendation = get_trail_recommendation(calendar_event, weather_data, trails_data)
-
-    print("Trail Recommendation from AI:")
-    print(recommendation)
-
-
