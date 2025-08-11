@@ -60,6 +60,8 @@ def _normalize_trails(trails: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
     Normalize trail records to the names used in your prompt examples.
     Accepts either your Google Sheet keys or the normalized keys.
+    Preserves per-trail 'forecast' if present:
+    forecast: {temperature, precipitation, condition}
     """
     normed = []
     for t in trails:
@@ -74,6 +76,7 @@ def _normalize_trails(trails: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
             "mud_rain_risk": t.get("mud_rain_risk") or t.get("Mud/Rain Risk"),
             "elevation_gain": t.get("elevation_gain") or t.get("Elevation Gain"),
             "hazards": t.get("hazards") or t.get("Notes & Hazards"),
+            "forecast": t.get("forecast"),
         })
     return normed
 
@@ -95,6 +98,8 @@ def get_trail_recommendation(
         "weather_forecast": weather_forecast,     # {"temperature": <num>, "precipitation": <num>, "condition": <str>}
         "trail_conditions": trail_conditions
     }
+
+    print(f"ANIL CONTEXT :    {context}")
 
     messages = [
         {"role": "system", "content": TRAIL_ASSISTANT_SYSTEM_PROMPT},
