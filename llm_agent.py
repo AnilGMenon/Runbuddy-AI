@@ -99,7 +99,9 @@ def get_trail_recommendation(
         "trail_conditions": trail_conditions
     }
 
-    print(f"ANIL CONTEXT :    {context}")
+    print("ANIL CONTEXT :")
+    print(json.dumps(context, indent=2, ensure_ascii=False))
+
 
     messages = [
         {"role": "system", "content": TRAIL_ASSISTANT_SYSTEM_PROMPT},
