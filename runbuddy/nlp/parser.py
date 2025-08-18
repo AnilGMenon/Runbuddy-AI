@@ -1,3 +1,5 @@
+"""NLP parsing utilities. Duckling-first time extraction + fallbacks."""
+
 
 # nlp_utils.py (Duckling-first NLP)
 from typing import Optional, Dict, List
@@ -13,7 +15,7 @@ try:
 except Exception:
     _NLP = None
 
-from duckling_client import parse_time as duckling_time
+from .duckling_client import parse_time as duckling_time
 
 LOCAL_TZ = ZoneInfo("America/Toronto")
 

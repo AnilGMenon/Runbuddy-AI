@@ -1,3 +1,5 @@
+"""LLM (Groq) based trail recommender. Wraps prompts and parsing."""
+
 # llm_agent.py — Groq version
 import json
 import re
@@ -5,10 +7,12 @@ from typing import Any, Dict, List, Optional
 import os
 
 from groq import Groq
-from prompts import TRAIL_ASSISTANT_SYSTEM_PROMPT_LITE as TRAIL_ASSISTANT_SYSTEM_PROMPT  # <- your prompt.py file
+from ..config import GROQ_API_KEY
+from .prompts import TRAIL_ASSISTANT_SYSTEM_PROMPT_LITE as TRAIL_ASSISTANT_SYSTEM_PROMPT  # <- your prompt.py file
 
 # Create Groq client (reads GROQ_API_KEY from env)
-client = Groq(api_key=os.environ.get("GROQ_API_KEY"))
+# Create Groq client from config/env; kept module-level for reuse.
+client = Groq(api_key=GROQ_API_KEY or os.environ.get("GROQ_API_KEY"))
 
 _REQUIRED_KEYS = ["trail_name", "location", "reason", "cautions"]
 

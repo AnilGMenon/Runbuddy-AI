@@ -1,0 +1,8 @@
+groq
+dateparser
+requests
+google-api-python-client
+google-auth
+google-auth-oauthlib
+scikit-learn
+spacy

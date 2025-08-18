@@ -1,6 +1,55 @@
-credentials.json
-token.pickle
-token.json
-.DS_Store
+# ---- Python ----
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# ---- Virtual environments ----
+.env
+.venv
+env/
+venv/
+ENV/
+.venv*/
+pip-wheel-metadata/
+
+# ---- Jupyter / IPython ----
+.ipynb_checkpoints
+*.ipynb
+
+# ---- Logs / Debug ----
+*.log
+logs/
+*.out
+*.err
+
+# ---- OS junk ----
+.DS_Store
+Thumbs.db
+
+# ---- IDEs / Editors ----
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ---- Google API credentials ----
+credentials.json
+token.json
+
+# ---- Config GROQ/Google Sheets API ---
+runbuddy/config.py
+
+# ---- Project specific ----
+# Cache/data files your app may generate
+*.sqlite3
+*.db
+*.cache
+__data__/
+.trails_cache/

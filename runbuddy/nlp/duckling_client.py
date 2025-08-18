@@ -1,3 +1,5 @@
+"""Thin HTTP client to a Duckling server for time parsing."""
+
 
 # duckling_client.py
 import os
